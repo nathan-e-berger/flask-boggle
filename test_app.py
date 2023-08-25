@@ -27,7 +27,7 @@ class BoggleAppTestCase(TestCase):
             # test that you're getting a template
             html = response.get_data(as_text=True)
 
-            self.assertIn("<form id='newWordForm'>", html)
+            self.assertIn('<table class="board', html)
 
 
     def test_api_new_game(self):
