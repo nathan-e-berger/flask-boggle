@@ -34,7 +34,15 @@ class BoggleAppTestCase(TestCase):
         """Test starting a new game."""
 
         with self.client as client:
-            ...
+
+            resp = client.post("/api/new-game")
+            json_resp = resp.get_json()
+
+            # breakpoint()
+            self.assertIsInstance(json_resp['game_id'], str)
+            self.assertIsInstance(json_resp['board'], list)
+            self.assertIn(json_resp['game_id'], games)
+            #TODO: DO we need to turn the jsonified list into a list?
             # make a post request to /api/new-game
             # get the response body as json using .get_json()
             # test that the game_id is a string
