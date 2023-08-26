@@ -38,9 +38,10 @@ def check_for_legal_word():
     if not game.is_word_in_word_list(word):
         result = "not-word"
 
-    if not game.check_word_on_board(word):
+    elif not game.check_word_on_board(word):
         result = "not-on-board"
 
-    result = "ok"
+    else:
+        result = "ok"
 
     return jsonify(result=result)
